@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 public class GameOverMenu : MonoBehaviour
 {
     public void RestartGame() {
-        SceneManager.LoadScene("Nivel1"); // Altere para o nome real da sua cena de gameplay
+        int nVida = Dificuldades.Instance.RecuperaVidaDefinida();
+        Controller.Instance.DefineVida(nVida);
+        SceneManager.LoadScene("Nivel1");
     }
 
     public void QuitGame() {
-        Application.Quit();
+        SceneManager.LoadScene("Inicio");
     }
 }
